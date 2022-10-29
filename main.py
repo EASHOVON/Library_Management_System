@@ -10,7 +10,7 @@ class User:
 class Library:
     def __init__(self,book_list) -> None:
         self.book_list = book_list
-    def borrow_book(self,bookName,user):
+    def borrow_books(self,bookName,user):
         for book in self.book_list:
             if book == bookName:
                 if bookName == user.borrow_books:
@@ -55,3 +55,7 @@ while True:
         print("OPTIONS")
         print("________")
         print("1. Borrow a book")
+        library.borrow_books("Bangla",currentUser)
+        print(library.book_list)
+        print(user.borrow_books)
+        break
