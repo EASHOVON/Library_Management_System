@@ -66,6 +66,7 @@ while True:
         print("1. Borrow a book")
         print("2. Return a book")
         print("3. Borrowed books list")
+        print("4. Returned books list")
         x = int(input("Give Option: "))
         if x==1:
             bookName = input("Book Name: ")
@@ -75,3 +76,5 @@ while True:
             library.returne_books(bookName,currentUser)
         elif x==3:
             print(currentUser.borrow_books)
+        elif x==4:
+            print(currentUser.returned_books)
