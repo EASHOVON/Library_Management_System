@@ -13,7 +13,7 @@ class Library:
     def borrow_books(self,bookName,user):
         for book in self.book_list:
             if book == bookName:
-                if bookName == user.borrow_books:
+                if bookName in user.borrow_books:
                     print("Boi Age Niso, Ferot Daw!")
                     return
                 if self.book_list[book]==0:
@@ -24,6 +24,15 @@ class Library:
                 print("You have borrowed this book")
                 return
         print("Book Not Available")
+    def returne_books(self,bookName,user):
+        for book in self.book_list:
+            if book == bookName:
+                self.book_list[book] += 1
+                user.borrow_books.remove(bookName)
+                user.returned_books.append(bookName)
+                print("Book returned successfully")
+                return
+        print("Kar boi ferot dite ashcho??")
 
 
 
@@ -55,7 +64,11 @@ while True:
         print("OPTIONS")
         print("________")
         print("1. Borrow a book")
-        library.borrow_books("Bangla",currentUser)
-        print(library.book_list)
-        print(user.borrow_books)
-        break
+        print("2. Return a book")
+        x = int(input("Give Option: "))
+        if x==1:
+            bookName = input("Book Name: ")
+            library.borrow_books(bookName,currentUser)
+        elif x==2:
+            bookName = input("Book Name: ")
+            library.returne_books(bookName,currentUser)
