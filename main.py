@@ -10,6 +10,21 @@ class User:
 class Library:
     def __init__(self,book_list) -> None:
         self.book_list = book_list
+    def borrow_book(self,bookName,user):
+        for book in self.book_list:
+            if book == bookName:
+                if bookName == user.borrow_books:
+                    print("Boi Age Niso, Ferot Daw!")
+                    return
+                if self.book_list[book]==0:
+                    print("Sorry, Boi Ses Hoye Gese")
+                    return
+                self.book_list[book] -= 1
+                user.borrow_books.append(bookName)
+                print("You have borrowed this book")
+                return
+        print("Book Not Available")
+
 
 
 library = Library({"English":2,"Bangla":5,"Math":3})
@@ -37,5 +52,6 @@ while True:
             user = User(name,roll,password)
             currentUser = user
     else:
-        print("User er kaj ses")
-        break
+        print("OPTIONS")
+        print("________")
+        print("1. Borrow a book")
