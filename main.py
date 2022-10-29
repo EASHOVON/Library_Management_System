@@ -81,6 +81,7 @@ while True:
         print("3. Borrowed books list")
         print("4. Returned books list")
         print("5. Check availability")
+        print("7. Logout")
         x = int(input("Give Option: "))
         if x==1:
             bookName = input("Book Name: ")
@@ -98,3 +99,6 @@ while True:
             bookName = input("Book name: ")
             amount = int(input("Amount: "))
             library.donate(bookName,amount)
+        elif x==7:
+            currentUser=None 
+        print("\n\n")
