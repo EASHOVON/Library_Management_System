@@ -14,25 +14,29 @@ class Library:
         for book in self.book_list:
             if book == bookName:
                 if bookName in user.borrow_books:
-                    print("Boi Age Niso, Ferot Daw!")
+                    print("Age ferot daw")
                     return
-                if self.book_list[book]==0:
-                    print("Sorry, Boi Ses Hoye Gese")
+                if self.book_list[book] == 0:
+                    print("Boi sesh hoye gese")
                     return
                 self.book_list[book] -= 1
                 user.borrow_books.append(bookName)
                 print("You have borrowed this book")
-                return
-        print("Book Not Available")
+                return 
+        print("Book not available")
     def returne_books(self,bookName,user):
         for book in self.book_list:
             if book == bookName:
-                self.book_list[book] += 1
-                user.borrow_books.remove(bookName)
-                user.returned_books.append(bookName)
-                print("Book returned successfully")
-                return
-        print("Kar boi ferot dite ashcho??")
+                if book in user.borrow_books:
+                    self.book_list[book] += 1
+                    user.borrow_books.remove(bookName)
+                    user.returned_books.append(bookName)
+                    print("Book returned successfully")
+                    return 
+                else:
+                    print("Thanks but onner boi nibo na")
+                    return 
+        print("Kar boi ferot dite ashco??")
 
     def availability(self):
         for book in self.book_list:
