@@ -34,6 +34,12 @@ class Library:
                 return
         print("Kar boi ferot dite ashcho??")
 
+    def availability(self):
+        for book in self.book_list:
+            if self.book_list[book] > 0 :
+                print(book, self.book_list[book])
+
+
 
 
 library = Library({"English":2,"Bangla":5,"Math":3})
@@ -67,6 +73,7 @@ while True:
         print("2. Return a book")
         print("3. Borrowed books list")
         print("4. Returned books list")
+        print("5. Check availability")
         x = int(input("Give Option: "))
         if x==1:
             bookName = input("Book Name: ")
@@ -78,3 +85,5 @@ while True:
             print(currentUser.borrow_books)
         elif x==4:
             print(currentUser.returned_books)
+        elif x==5:
+            library.availability()
