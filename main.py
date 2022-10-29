@@ -38,7 +38,14 @@ class Library:
         for book in self.book_list:
             if self.book_list[book] > 0 :
                 print(book, self.book_list[book])
-
+    def donate(self,bookName,amount):
+        for book in self.book_list:
+            if book == bookName:
+                self.book_list[book] += amount
+                print("Thanks for donating")
+                return
+        self.book_list[bookName] = amount
+        print("Thanks for donating")
 
 
 
@@ -87,3 +94,7 @@ while True:
             print(currentUser.returned_books)
         elif x==5:
             library.availability()
+        elif x==6:
+            bookName = input("Book name: ")
+            amount = int(input("Amount: "))
+            library.donate(bookName,amount)
