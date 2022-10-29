@@ -15,3 +15,27 @@ class Library:
 library = Library({"English":2,"Bangla":5,"Math":3})
 allUsers = []
 currentUser = None
+
+while True:
+    if currentUser == None:
+        print("Not Logged In\nPlease Login or create account (L/C)")
+        option = input()
+        if option == "L":
+            roll = int(input("Roll: "))
+            password = input("Password: ")
+            match = False
+            for user in allUsers:
+                if user.roll==roll and user.password == password:
+                    currentUser = user
+                    match = True
+            if match == False:
+                print("No user found")
+        else:
+            name = input("Name: ")
+            roll = int(input("Roll: "))
+            password = input("Password: ")
+            user = User(name,roll,password)
+            currentUser = user
+    else:
+        print("User er kaj ses")
+        break
