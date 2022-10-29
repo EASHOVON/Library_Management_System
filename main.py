@@ -71,8 +71,16 @@ while True:
             name = input("Name: ")
             roll = int(input("Roll: "))
             password = input("Password: ")
+            found = False
+            for user in allUsers:
+                if user.roll == roll:
+                    found = True
+            if found:
+                print("Koibar account khulba?")
+                continue;
             user = User(name,roll,password)
-            currentUser = user
+            currentUser = user 
+            allUsers.append(user)
     else:
         print("OPTIONS")
         print("________")
